@@ -1,20 +1,27 @@
-const inputContainer = document.querySelector(".data-container");
-const outputContainer = document.querySelector(".second-data-container");
+const inputContainer = document.getElementById("input-container");
+const outputContainer = document.getElementById("output-container");
 var startBtn = document.getElementById("startBtn");
+var nums = []
+
+generateInputBlocks();
 startBtn.addEventListener("click", function () {
-  $(".block").remove();
-  startBtn.disabled = true;
-  generateBlocks();
+  if(!nums || !nums.length) {
+    $(".block").remove();
+    generateInputBlocks();
+  }
   solution();
+  startBtn.disabled = true;
+
 });
 
-function generateBlocks(num = 5) {
+function generateInputBlocks(num = 5) {
   if (num && typeof num !== "number") {
     alert("First argument must be a typeof Number");
     return;
   }
   for (let i = 0; i < num; i += 1) {
     const value = Math.floor(Math.random() * 10);
+    nums.push(value);
     const block = createBlock(i, value);
     inputContainer.appendChild(block);
   }
@@ -29,7 +36,6 @@ async function solution() {
   firstOutputBlock.style.backgroundColor = "#58B7FF";
   outputContainer.appendChild(firstOutputBlock);
   sums[0] = parseInt(firstOuputBlockValue, 10);
-  console.log("test");
 
   await new Promise((resolve) =>
     setTimeout(() => {
@@ -41,7 +47,6 @@ async function solution() {
     inputBlocks[i].style.backgroundColor = "#58B7FF";
 
     let outputBlocks = outputContainer.querySelectorAll(".block");
-    console.log(outputBlocks);
     outputBlocks[i - 1].style.backgroundColor = "#ff5858";
 
     const blockValue = inputBlocks[i].firstElementChild.innerHTML;
@@ -55,6 +60,8 @@ async function solution() {
       }, 2000)
     );
   }
+
+  nums = []
   startBtn.disabled = false;
 }
 
@@ -64,7 +71,6 @@ function createBlock(i, label) {
   block.style.transform = `translateX(${i * 60}px)`;
 
   const blockLabel = document.createElement("label");
-  blockLabel.classList.add("block__id");
   blockLabel.innerHTML = label;
 
   block.appendChild(blockLabel);

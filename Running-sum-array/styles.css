@@ -2,16 +2,20 @@ body {
     font-family: sans-serif;
   }
   
-  .data-container {
-    width: 600px;
+  #input-container {
+    width: 300px;
     height: 150px;
     position: relative;
+    border: 3px solid blue;
   }
   
-  .second-data-container {
-    width: 600px;
+  #output-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
     height: 150px;
     position: relative;
+    border: 3px solid red;
   }
   
   .block {
