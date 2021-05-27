@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  .data-container {
+    width: 600px;
+    height: 150px;
+    position: relative;
+  }
+  
+  .second-data-container {
+    width: 600px;
+    height: 150px;
+    position: relative;
+  }
+  
+  .block {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    background-color: #ff5858;
+    transition: 0.2s all ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
