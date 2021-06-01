@@ -1,0 +1,43 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  #input-container {
+    width: 360px;
+    height: 100px;
+    position: relative;
+    border: 3px solid blue;
+  }
+  
+  #output-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 150px;
+    position: relative;
+    border: 3px solid red;
+  }
+  
+  .block {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    background-color: #ff5858;
+    transition: 0.2s all ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 30px;
+  }
+  
+  .block_label {
+    text-align: center;
+  }
+  
+  table {
+    border-collapse: separate;
+    border-spacing: 1em 0;
+  }
+  
