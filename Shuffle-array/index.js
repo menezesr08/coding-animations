@@ -28,6 +28,7 @@ function generateInputBlocks(num = 6) {
 
 async function solution() {
   let inputBlocks = inputContainer.querySelectorAll(".block");
+  // j controls the index of the output blocks
   var j = -1;
 
   for (let i = 0; i < 3; i += 1) {
