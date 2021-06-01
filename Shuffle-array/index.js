@@ -53,7 +53,8 @@ async function solution() {
       }, 2000)
     );
   }
-  resetValues();
+  nums = [];
+  startBtn.disabled = false;
 }
 
 function createBlock(i, label) {
@@ -67,9 +68,4 @@ function createBlock(i, label) {
   block.appendChild(blockLabel);
 
   return block;
-}
-
-function resetValues() {
-  nums = [];
-  startBtn.disabled = false;
 }
