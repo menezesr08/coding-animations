@@ -61,7 +61,6 @@ function createBlock(i, label) {
   block.style.transform = `translateX(${i * 60}px)`;
 
   const blockLabel = document.createElement("label");
-  blockLabel.classList.add("block__id");
   blockLabel.innerHTML = label;
 
   block.appendChild(blockLabel);
