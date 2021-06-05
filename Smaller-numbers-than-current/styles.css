@@ -1,0 +1,108 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  #input-container {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 100px 100px;
+  }
+  .processing-container {
+    display: grid;
+    grid-template-columns: 500px 100px;
+    border: 3px solid yellow;
+    width: 800px;
+  }
+  
+  .output-container {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    width: 400px;
+    margin-top: 30px;
+  }
+  
+  .block {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    bottom: 50px;
+    background-color: #ff5858;
+    transition: 0.2s all ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sorted {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    background-color: #6699ff;
+    transition: 0.2s all ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 30px;
+  }
+  
+  .outputBlock {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    background-color: #90ee90;
+    transition: 0.2s all ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .block_label {
+    text-align: center;
+  }
+  
+  #nums {
+    width: 400px;
+    height: 140px;
+    position: relative;
+  }
+  
+  #sortedNums {
+    width: 400px;
+    height: 170px;
+    position: relative;
+    top: 30px;
+  }
+  
+  #mappingDiv {
+    width: 600px;
+    height: 90px;
+    position: relative;
+  }
+  
+  table {
+    border-collapse: separate;
+    border-spacing: 1em 0;
+  }
+  
+  #mappingText {
+    margin-left: 45px;
+  }
+  
+  #outputDiv {
+    width: 400px;
+    height: 100px;
+    position: relative;
+    margin-top: 20px;
+  }
+  
+  .header {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 25px;
+  }
+  
