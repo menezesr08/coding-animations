@@ -6,7 +6,7 @@ var nums = [];
 var sortedNums;
 var mapping = {};
 var startBtn = document.getElementById("startBtn");
-
+generateBlocks();
 startBtn.addEventListener("click", function () {
   if (!nums || nums.length === 0) {
     $("label").remove();
@@ -27,7 +27,6 @@ function generateBlocks(numBlocks = 5) {
     const block = createBlock(i, randomNumber);
     numsDiv.append(block);
   }
-  animateCSS(numsDiv, "fadeIn");
 }
 
 function createSortedBlocks() {
@@ -89,37 +88,16 @@ async function createOutputBlocks() {
 }
 
 async function solution() {
-  numsDiv.addEventListener("animationend", async () => {
-    createSortedBlocks();
-    await addDelay(1000);
-    mapValues().then(function (value) {
-      createOutputBlocks().then(function (value) {
-        nums = [];
-        sortedNums = [];
-        mapping = {};
-        startBtn.disabled = false;
-      });
+  createSortedBlocks();
+  mapValues().then(function (value) {
+    createOutputBlocks().then(function (value) {
+      nums = [];
+      sortedNums = [];
+      mapping = {};
+      startBtn.disabled = false;
     });
   });
 }
-
-const animateCSS = (node, animation, prefix = "animate__") =>
-  // We create a Promise and return it
-  new Promise((resolve, reject) => {
-    const animationName = `${prefix}${animation}`;
-
-    node.classList.add(`${prefix}animated`, animationName);
-    node.style.setProperty("--animate-duration", "3s");
-    // When the animation ends, we clean the classes and resolve the Promise
-    function handleAnimationEnd(event) {
-      event.stopPropagation();
-      node.classList.remove(`${prefix}animated`, animationName);
-      node.style.removeProperty("--animate-duration");
-      resolve("Animation ended");
-    }
-
-    node.addEventListener("animationend", handleAnimationEnd, { once: true });
-  });
 
 function createBlock(i, label, type = "block") {
   const block = document.createElement("div");
@@ -139,7 +117,6 @@ function createIndexLabel(i, margin) {
   label.innerHTML = i;
   label.style.marginLeft = `${margin}px`;
   return label;
-  // sortedNumsDiv.appendChild(label);
 }
 
 function addDelay(time) {
