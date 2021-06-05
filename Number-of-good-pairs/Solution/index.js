@@ -5,6 +5,7 @@ generateInputBlocks();
 startBtn.addEventListener("click", function () {
   $("label").remove();
   $(".block").remove();
+  $(".values").remove();
   startBtn.disabled = true;
   generateInputBlocks();
   solution();
@@ -43,6 +44,7 @@ async function solution() {
       numOccurences[value] = 1;
     }
     const row = document.createElement("tr");
+    row.classList.add("values");
     const elementHeader = document.createElement("th");
     elementHeader.innerHTML = value;
     const countHeader = document.createElement("th");
