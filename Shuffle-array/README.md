@@ -1,1 +1,1 @@
-**Click the link to see the animation for this problem:** https://s7xsv.csb.app/
+**Click the link to see the animation for this problem:** https://menezesr08.github.io/coding-animations/Shuffle-array/index.html
