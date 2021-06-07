@@ -1,5 +1,5 @@
-const inputContainer = document.getElementById("input-container");
-const outputContainer = document.getElementById("output-container");
+const numsDiv = document.getElementById("nums");
+const outputDiv = document.getElementById("output");
 var startBtn = document.getElementById("startBtn");
 var nums = []
 
@@ -23,18 +23,18 @@ function generateInputBlocks(num = 5) {
     const value = Math.floor(Math.random() * 10);
     nums.push(value);
     const block = createBlock(i, value);
-    inputContainer.appendChild(block);
+    numsDiv.appendChild(block);
   }
 }
 
 async function solution() {
-  var sums = [];
-  let inputBlocks = inputContainer.querySelectorAll(".block");
+  let sums = [];
+  let inputBlocks = numsDiv.querySelectorAll(".block");
   inputBlocks[0].style.backgroundColor = "#58B7FF";
   const firstOuputBlockValue = inputBlocks[0].firstElementChild.innerHTML;
   let firstOutputBlock = createBlock(0, firstOuputBlockValue);
   firstOutputBlock.style.backgroundColor = "#58B7FF";
-  outputContainer.appendChild(firstOutputBlock);
+  outputDiv.appendChild(firstOutputBlock);
   sums[0] = parseInt(firstOuputBlockValue, 10);
 
   await new Promise((resolve) =>
@@ -46,14 +46,14 @@ async function solution() {
   for (let i = 1; i < inputBlocks.length; i += 1) {
     inputBlocks[i].style.backgroundColor = "#58B7FF";
 
-    let outputBlocks = outputContainer.querySelectorAll(".block");
+    let outputBlocks = outputDiv.querySelectorAll(".block");
     outputBlocks[i - 1].style.backgroundColor = "#ff5858";
 
     const blockValue = inputBlocks[i].firstElementChild.innerHTML;
     sums[i] = sums[i - 1] + parseInt(blockValue, 10);
     const block = createBlock(i, sums[i]);
     block.style.backgroundColor = "#58B7FF";
-    outputContainer.append(block);
+    outputDiv.append(block);
     await new Promise((resolve) =>
       setTimeout(() => {
         resolve();
