@@ -1,4 +1,4 @@
-const inputContainer = document.getElementById("input-container");
+const inputDiv = document.getElementById("input");
 let numGoodPairsTag = document.getElementById("pairs");
 var startBtn = document.getElementById("startBtn");
 generateInputBlocks();
@@ -15,21 +15,21 @@ function generateInputBlocks() {
   let standardLabelMargin = 51;
   let label = createIndexLabel(0, 22);
   let block = createBlock(0, nums[0]);
-  inputContainer.appendChild(label);
-  inputContainer.appendChild(block);
+  inputDiv.appendChild(label);
+  inputDiv.appendChild(block);
 
   for (let i = 1; i < nums.length; i++) {
     let label = createIndexLabel(i, standardLabelMargin);
     let block = createBlock(i, nums[i]);
-    inputContainer.appendChild(label);
-    inputContainer.appendChild(block);
+    inputDiv.appendChild(label);
+    inputDiv.appendChild(block);
   }
 }
 
 async function solution() {
   let numOccurences = {};
   let numGoodPairs = 0;
-  let inputBlocks = inputContainer.querySelectorAll(".block");
+  let inputBlocks = inputDiv.querySelectorAll(".block");
 
   for (let i = 0; i < inputBlocks.length; i += 1) {
     inputBlocks[i].style.backgroundColor = "#58B7FF";

@@ -3,10 +3,10 @@ body {
   }
   
   #input-container {
-    width: 360px;
-    height: 100px;
-    position: relative;
-    border: 3px solid blue;
+    margin-top: 50px;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 100px 100px;
   }
   
   #output-container {
@@ -15,7 +15,6 @@ body {
     width: 200px;
     height: 50px;
     position: relative;
-    border: 3px solid red;
   }
   
   .block {
@@ -34,5 +33,12 @@ body {
   
   .block_label {
     text-align: center;
+  }
+
+  #input {
+    top: -20px;
+    width: 400px;
+    height: 140px;
+    position: relative;
   }
   
