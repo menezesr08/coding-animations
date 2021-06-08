@@ -1,5 +1,5 @@
-const inputContainer = document.getElementById("input-container");
-const outputContainer = document.getElementById("output-container");
+const inputDiv = document.getElementById("input");
+const outputDiv = document.getElementById("output");
 var startBtn = document.getElementById("startBtn");
 var nums = [];
 
@@ -22,31 +22,31 @@ function generateInputBlocks(num = 6) {
     const value = Math.floor(Math.random() * 20);
     nums.push(value);
     const block = createBlock(i, value);
-    inputContainer.appendChild(block);
+    inputDiv.appendChild(block);
   }
 }
 
 async function solution() {
-  let inputBlocks = inputContainer.querySelectorAll(".block");
+  let inputBlocks = inputDiv.querySelectorAll(".block");
   // j controls the index of the output blocks
   var j = -1;
 
   for (let i = 0; i < 3; i += 1) {
     inputBlocks[i].style.backgroundColor = "#58B7FF";
-    const firstBlockValue = inputBlocks[i].firstElementChild.innerHTML;
-    const firstBlock = createBlock((j += 1), firstBlockValue);
-    firstBlock.style.backgroundColor = "#58B7FF";
-    outputContainer.append(firstBlock);
+    const firstOutputBlockValue = inputBlocks[i].firstElementChild.innerHTML;
+    const firstOutputBlock = createBlock((j += 1), firstOutputBlockValue);
+    firstOutputBlock.style.backgroundColor = "#58B7FF";
+    outputDiv.append(firstOutputBlock);
     await new Promise((resolve) =>
       setTimeout(() => {
         resolve();
       }, 2000)
     );
     inputBlocks[i + 3].style.backgroundColor = "#90ee90";
-    const secondBlockValue = inputBlocks[i + 3].firstElementChild.innerHTML;
-    const secondBlock = createBlock((j += 1), secondBlockValue);
-    secondBlock.style.backgroundColor = "#90ee90";
-    outputContainer.append(secondBlock);
+    const secondOutputBlockValue = inputBlocks[i + 3].firstElementChild.innerHTML;
+    const secondOutputBlock = createBlock((j += 1), secondOutputBlockValue);
+    secondOutputBlock.style.backgroundColor = "#90ee90";
+    outputDiv.append(secondOutputBlock);
     await new Promise((resolve) =>
       setTimeout(() => {
         resolve();

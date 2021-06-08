@@ -3,21 +3,19 @@ body {
   }
   
   #input-container {
-    width: 400px;
-    height: 150px;
-    position: relative;
-    border: 3px solid blue;
+    margin-top: 20px;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 100px 100px;
   }
   
   #output-container {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 100px 100px;
     width: 400px;
-    height: 150px;
-    position: relative;
-    border: 3px solid red;
+    margin-top: 60px;
   }
-  
+
   .block {
     width: 50px;
     height: 50px;
@@ -30,4 +28,25 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+  
+  .header {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 25px;
+  }
+
+  #input {
+    top: -20px;
+    width: 400px;
+    height: 140px;
+    position: relative;
+  }
+
+  #output {
+    top: 20px;
+    width: 400px;
+    height: 100px;
+    position: relative;
+  }
+  
   
