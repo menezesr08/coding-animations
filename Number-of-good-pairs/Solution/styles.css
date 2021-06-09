@@ -15,7 +15,6 @@ body {
     width: 350px;
     height: 150px;
     position: relative;
-    border: 3px solid red;
   }
   
   .block {
@@ -39,5 +38,12 @@ body {
   table {
     border-collapse: separate;
     border-spacing: 1em 0;
+  }
+  
+  #input {
+    top: -20px;
+    width: 400px;
+    height: 140px;
+    position: relative;
   }
   
