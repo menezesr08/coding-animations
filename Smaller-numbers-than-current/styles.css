@@ -79,7 +79,7 @@ body {
     top: 30px;
   }
   
-  #mappingDiv {
+  #mapping {
     width: 600px;
     height: 90px;
     position: relative;
@@ -94,7 +94,7 @@ body {
     margin-left: 45px;
   }
   
-  #outputDiv {
+  #output {
     width: 400px;
     height: 100px;
     position: relative;

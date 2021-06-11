@@ -1,12 +1,12 @@
 const numsDiv = document.getElementById("nums");
 const sortedNumsDiv = document.getElementById("sortedNums");
-const outputDiv = document.getElementById("outputDiv");
+const outputDiv = document.getElementById("output");
 var outputTable = document.getElementById("output-table");
 var nums = [];
 var sortedNums;
 var mapping = {};
 var startBtn = document.getElementById("startBtn");
-generateBlocks();
+generateInputBlocks();
 startBtn.addEventListener("click", function () {
   if (!nums || nums.length === 0) {
     $("label").remove();
@@ -14,13 +14,13 @@ startBtn.addEventListener("click", function () {
     $(".values").remove();
     $(".sorted").remove();
     $(".outputBlock").remove();
-    generateBlocks();
+    generateInputBlocks();
   }
   startBtn.disabled = true;
   solution();
 });
 
-function generateBlocks(numBlocks = 5) {
+function generateInputBlocks(numBlocks = 5) {
   for (let i = 0; i < numBlocks; i++) {
     const randomNumber = Math.floor(Math.random() * 20) + 1;
     nums.push(randomNumber);
@@ -29,7 +29,7 @@ function generateBlocks(numBlocks = 5) {
   }
 }
 
-function createSortedBlocks() {
+function generateSortedBlocks() {
   sortedNums = [...nums].sort(function (a, b) {
     return a - b;
   });
@@ -65,12 +65,12 @@ async function mapValues() {
 
       outputTable.appendChild(row);
     }
-    await addDelay(1000);
+    await addDelay(3000);
     sortedBlocks[i].style.backgroundColor = "#6699ff";
   }
 }
 
-async function createOutputBlocks() {
+async function generateOutputBlocks() {
   let inputBlocks = numsDiv.querySelectorAll(".block");
   for (let i = 0; i < nums.length; i++) {
     inputBlocks[i].style.backgroundColor = "#FFFF00";
@@ -81,16 +81,16 @@ async function createOutputBlocks() {
     let outputBlock = createBlock(i, mapping[value], "outputBlock");
     outputDiv.append(outputBlock);
 
-    await addDelay(1000);
+    await addDelay(3000);
     inputBlocks[i].style.backgroundColor = "";
     selectedRow.style.backgroundColor = "";
   }
 }
 
 async function solution() {
-  createSortedBlocks();
+  generateSortedBlocks();
   mapValues().then(function (value) {
-    createOutputBlocks().then(function (value) {
+    generateOutputBlocks().then(function (value) {
       nums = [];
       sortedNums = [];
       mapping = {};
