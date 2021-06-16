@@ -1,6 +1,7 @@
 const inputDiv = document.getElementById("input");
 let numGoodPairsTag = document.getElementById("pairs");
 var startBtn = document.getElementById("startBtn");
+var outputTable = document.getElementById("output-table");
 generateInputBlocks();
 startBtn.addEventListener("click", function () {
   $("label").remove();
@@ -29,6 +30,7 @@ function generateInputBlocks() {
 async function solution() {
   let numOccurences = {};
   let numGoodPairs = 0;
+  let goodPairsIndexes = {}
   let inputBlocks = inputDiv.querySelectorAll(".block");
 
   for (let i = 0; i < inputBlocks.length; i += 1) {
@@ -37,10 +39,21 @@ async function solution() {
     const value = parseInt(blockValue, 10);
     if (value in numOccurences) {
       inputBlocks[i].style.backgroundColor = "#FFFF00";
+      let currentGoodPairIndexes = goodPairsIndexes[value];
+      for(let j = 0; j<currentGoodPairIndexes.length; j++) {
+        const row = document.createElement("tr");
+        const indexPairCell = document.createElement("th");
+        indexPairCell.innerHTML = `(${currentGoodPairIndexes[j]}, ${i})`
+        row.append(indexPairCell);
+        outputTable.append(row);
+      }
+      goodPairsIndexes[value].push(i);
       numGoodPairs += numOccurences[value];
       numOccurences[value] += 1;
     } else {
       numOccurences[value] = 1;
+      goodPairsIndexes[value] = [i];
+      
     }
     numGoodPairsTag.innerHTML = numGoodPairs;
     await new Promise((resolve) =>
@@ -51,6 +64,7 @@ async function solution() {
 
     inputBlocks[i].style.backgroundColor = "#ff5858";
   }
+  console.log(goodPairsIndexes);
   startBtn.disabled = false;
 }
 
