@@ -6,6 +6,7 @@ generateInputBlocks();
 startBtn.addEventListener("click", function () {
   $("label").remove();
   $(".block").remove();
+  $(".values").remove();
   startBtn.disabled = true;
   generateInputBlocks();
   solution();
@@ -42,6 +43,7 @@ async function solution() {
       let currentGoodPairIndexes = goodPairsIndexes[value];
       for(let j = 0; j<currentGoodPairIndexes.length; j++) {
         const row = document.createElement("tr");
+        row.classList.add("values");
         const indexPairCell = document.createElement("th");
         indexPairCell.innerHTML = `(${currentGoodPairIndexes[j]}, ${i})`
         row.append(indexPairCell);
